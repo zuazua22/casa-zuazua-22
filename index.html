@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Casa Gral. Zuazua 22 · En renta en San Miguel Chapultepec</title>
+<meta name="description" content="Casa en renta de dos niveles, en esquina y sobre una calle muy arbolada de San Miguel Chapultepec, Ciudad de México. $70,000 MXN al mes.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Casa en renta · Zuazua 22, San Miguel Chapultepec">
+<meta property="og:description" content="Casa de dos niveles en esquina, en una de las calles más arboladas de la colonia. $70,000 MXN al mes.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #faf7f0;
+    --surface: #f2ecdd;
+    --ink: #2c2a24;
+    --muted: #6a655a;
+    --accent: #3f7a5c;
+    --accent-ink: #2e5e45;
+    --line: rgba(44, 42, 36, .16);
+    --focus: #2e5e45;
+    --btn-bg: #2c2a24;
+    --btn-ink: #faf7f0;
+    --map-street: #fffdf8;
+    --map-block: #eee6d2;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --nav-h: 68px;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1b17;
+      --surface: #27241e;
+      --ink: #efe9dc;
+      --muted: #b3ac9c;
+      --accent: #86be9f;
+      --accent-ink: #a5d2b9;
+      --line: rgba(239, 233, 220, .18);
+      --focus: #a5d2b9;
+      --btn-bg: #efe9dc;
+      --btn-ink: #1d1b17;
+      --map-street: #37332b;
+      --map-block: #221f1a;
+      }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1d1b17;
+    --surface: #27241e;
+    --ink: #efe9dc;
+    --muted: #b3ac9c;
+    --accent: #86be9f;
+    --accent-ink: #a5d2b9;
+    --line: rgba(239, 233, 220, .18);
+    --focus: #a5d2b9;
+    --btn-bg: #efe9dc;
+    --btn-ink: #1d1b17;
+    --map-street: #37332b;
+    --map-block: #221f1a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    background: var(--bg);
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 8px);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.12;
+    margin: 0;
+    letter-spacing: -.01em;
+  }
+  p { margin: 0; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Botones ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 46px; padding: 0 24px;
+    border-radius: 4px; border: 1px solid transparent;
+    font: 500 .98rem/1 var(--sans);
+    text-decoration: none; cursor: pointer;
+    transition: background-color .2s, color .2s, border-color .2s;
+  }
+  .btn-primary { background: var(--btn-bg); color: var(--btn-ink); border-color: var(--btn-bg); }
+  .btn-primary:hover { background: transparent; color: var(--ink); border-color: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--accent); }
+  .btn-ghost:hover { background: var(--surface); }
+
+  /* ---------- Navegación ---------- */
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-in {
+    max-width: 1120px; margin: 0 auto; padding: 10px 20px;
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 4px 24px;
+  }
+  .brand {
+    font: 500 1.2rem/1.2 var(--serif); text-decoration: none; white-space: nowrap;
+  }
+  .links { display: flex; gap: 4px; justify-content: center; }
+  .links a {
+    padding: 8px 12px; font-size: .95rem; text-decoration: none; white-space: nowrap;
+    border-bottom: 2px solid transparent; color: var(--muted);
+  }
+  .links a:hover { color: var(--ink); }
+  .links a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+  .nav-price { font: 500 1.1rem/1.2 var(--serif); white-space: nowrap; }
+  .nav-price small { font: 400 .78rem var(--sans); color: var(--muted); margin-left: 2px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 28px 0 0; }
+  .frame {
+    position: relative; width: min(100%, 560px); height: clamp(380px, 62vw, 600px);
+    margin: 0 auto; border-radius: 999px 999px 0 0; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--line);
+  }
+  .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 48%; }
+  .frame .ph svg { width: 84px; }
+  .frame .ph { font-size: 1rem; padding-bottom: 80px; }
+  .plaque {
+    position: relative; z-index: 2;
+    max-width: 780px; margin: -84px auto 0;
+    padding: 32px clamp(20px, 5vw, 48px) 36px;
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    text-align: center;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .frame { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+  }
+  .plaque h1 { font-size: clamp(2.3rem, 6.4vw, 3.8rem); }
+  .plaque .addr { margin-top: 10px; color: var(--muted); font-size: 1rem; }
+  .pill {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    margin-top: 20px; padding: 8px 24px 10px;
+    border: 1.5px solid var(--accent); border-radius: 999px;
+    font: 500 1.6rem/1.2 var(--serif);
+  }
+  .pill small { font: 400 .9rem var(--sans); color: var(--muted); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
+
+  /* ---------- Secciones ---------- */
+  .sec { padding: clamp(56px, 9vw, 104px) 0; border-top: 1px solid var(--line); }
+  #contacto {
+    min-height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px));
+    min-height: calc(100svh - var(--nav-h) - env(safe-area-inset-top, 0px));
+    display: flex; align-items: center;
+  }
+  #contacto .wrap { width: 100%; }
+  #casa { margin-top: clamp(40px, 6vw, 72px); }
+  .sec h2 { font-size: clamp(2rem, 4.6vw, 3rem); margin-bottom: 24px; }
+  .sec h3 { font-size: 1.4rem; }
+
+  .lead { font: 400 clamp(1.15rem, 2vw, 1.3rem)/1.65 var(--serif); max-width: 62ch; }
+
+  .figs {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    margin: 40px 0 48px;
+    background: var(--line); border: 1px solid var(--line);
+    border-radius: 6px; overflow: hidden;
+  }
+  .fig { background: var(--bg); padding: 26px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .fig b { font: 400 clamp(2.1rem, 4.4vw, 3rem)/1 var(--serif); }
+  .fig span { color: var(--muted); font-size: .96rem; line-height: 1.4; }
+
+  .amen {
+    list-style: none; margin: 20px 0 0; padding: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px;
+  }
+  .amen li { display: flex; gap: 14px; align-items: flex-start; }
+  .amen li::before {
+    content: ""; flex: none; margin-top: .3em;
+    width: 11px; height: 16px;
+    border: 1.5px solid var(--accent); border-bottom-width: 0;
+    border-radius: 11px 11px 0 0;
+  }
+
+  /* Ubicación */
+  .loc {
+    display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px); align-items: center;
+  }
+  .map { margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--map-street); }
+  .map svg { display: block; width: 100%; height: auto; }
+  .m-street { fill: var(--map-street); }
+  .m-block { fill: var(--map-block); }
+  .m-lot { fill: var(--accent); fill-opacity: .28; stroke: var(--accent); stroke-width: 2; }
+  .m-pin { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+  .m-pin-dot { fill: var(--bg); }
+  .m-name { fill: var(--muted); font: 500 17px var(--sans); letter-spacing: .03em; }
+  .m-label { fill: var(--ink); font: 600 20px var(--sans); }
+  .m-north { fill: var(--muted); }
+  .m-north-t { fill: var(--muted); font: 600 15px var(--sans); }
+
+  address { margin-bottom: 18px; font: 400 clamp(1.4rem, 2.6vw, 1.8rem)/1.35 var(--serif); font-style: normal; }
+  
+
+  .loc-text { margin: 0 0 28px; }
+
+  /* Galería */
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tile {
+    position: relative; aspect-ratio: 1 / 1; padding: 0;
+    border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+    background: var(--surface); cursor: zoom-in; color: inherit; font: inherit;
+    transition: border-color .2s;
+  }
+  .tile:hover { border-color: var(--accent); }
+  .tile img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+  .ph {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    color: var(--muted); font-size: .9rem;
+  }
+  .ph svg { width: 44px; height: auto; stroke: var(--accent); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Contacto */
+  .contact { max-width: 620px; }
+  .contact .lead { font-size: 1.2rem; }
+  .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+  /* ---------- Lightbox ---------- */
+  .lb {
+    position: fixed; inset: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(20, 18, 14, .95);
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+  .lb[hidden] { display: none; }
+  .lb-stage { margin: 0; max-width: min(92vw, 1200px); text-align: center; }
+  .lb-stage img { max-width: 100%; max-height: 78vh; margin: 0 auto; }
+  .lb-ph { width: min(80vw, 760px); aspect-ratio: 4 / 3; border: 1px solid rgba(239, 233, 220, .25); background: #27241e; color: #b3ac9c; }
+  .lb-ph svg { width: 84px; stroke: #86be9f; }
+  .lb-count { margin-top: 12px; color: #d9d2c2; font-size: .9rem; }
+  .lb-btn {
+    position: absolute; width: 48px; height: 48px; border-radius: 50%;
+    display: grid; place-items: center; padding: 0;
+    border: 1px solid rgba(239, 233, 220, .4); background: rgba(20, 18, 14, .6);
+    color: #efe9dc; font: 400 1.7rem/1 var(--sans); cursor: pointer;
+  }
+  .lb-btn[hidden] { display: none; }
+  .lb-btn:hover { border-color: #86be9f; }
+  .lb-btn:focus-visible { outline-color: #a5d2b9; }
+  .lb-close { top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; }
+  .lb-prev { left: 14px; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 14px; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 860px) {
+    .loc { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  }
+  @media (max-width: 720px) {
+    :root { --nav-h: 104px; }
+    .plaque { margin-top: -64px; }
+    .nav-in { grid-template-columns: 1fr auto; padding-bottom: 4px; }
+    .links {
+      grid-column: 1 / -1; grid-row: 2; justify-content: space-between;
+      overflow-x: auto; margin: 0 -8px;
+    }
+    .links a { padding: 8px 8px; }
+    .figs { grid-template-columns: repeat(2, 1fr); }
+    .amen { grid-template-columns: 1fr; }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Casa Gral. Zuazua 22</a>
+    <nav class="links" aria-label="Secciones">
+      <a href="#casa">La casa</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-price">$70,000 MXN<small>/ mes</small></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Portada -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="frame" id="hero-photo"></div>
+      <div class="plaque">
+        <h1>Casa en renta</h1>
+        <p class="addr">Zuazua 22, San Miguel Chapultepec, CDMX</p>
+        <div class="pill">$70,000 MXN <small>al mes</small></div>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contacto">Contactar</a>
+          <a class="btn btn-ghost" href="#galeria">Ver fotos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- La casa -->
+  <section class="sec" id="casa">
+    <div class="wrap">
+      <h2>La casa</h2>
+      <p class="lead">
+        Casa de dos niveles ubicada en esquina, en una de las calles más arboladas de la colonia. Conserva elementos originales de gran carácter — pisos de madera, ventanas arqueadas con herrería forjada y vitrales de colores — combinados con acabados renovados en baños y cocina. Alrededor de 150 m² distribuidos en espacios amplios y luminosos, con un patio central que conecta las áreas sociales.
+      </p>
+
+      <div class="figs">
+        <div class="fig"><b>150</b><span>m² aproximados</span></div>
+        <div class="fig"><b>2</b><span>recámaras</span></div>
+        <div class="fig"><b>2</b><span>baños completos</span></div>
+        <div class="fig"><b>+1</b><span>cuarto de servicio con baño</span></div>
+      </div>
+
+      <h3>Espacios y detalles</h3>
+      <ul class="amen">
+        <li>2 recámaras, la principal con walk-in closet</li>
+        <li>2 baños completos</li>
+        <li>Oficina o estudio</li>
+        <li>Family room</li>
+        <li>Cocina equipada</li>
+        <li>Patio techado</li>
+        <li>Roof garden</li>
+        <li>Pisos de madera originales</li>
+        <li>Ventanas con herrería y vitrales</li>
+        <li>Vista arbolada</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Ubicación -->
+  <section class="sec" id="ubicacion">
+    <div class="wrap">
+      <h2>Ubicación</h2>
+      <div class="loc">
+        <figure class="map">
+          <svg viewBox="0 0 700 520" role="img" aria-label="Mapa ilustrativo: la casa está en la esquina de la calle General Zuazua con la calle Tiburcio Montiel.">
+            <rect width="700" height="520" class="m-street"/>
+            <g id="m-blocks"></g>
+            <text class="m-name" x="245" y="261" text-anchor="middle">Calle Gral. Zuazua</text>
+            <text class="m-name" transform="translate(391 365) rotate(-90)" text-anchor="middle">Tiburcio Montiel</text>
+            <rect class="m-lot" x="426" y="296" width="100" height="56" rx="3"/>
+            <g transform="translate(476 330)">
+              <path class="m-pin" d="M0 0 C-9 -12 -16 -20 -16 -30 a16 16 0 1 1 32 0 c0 10 -7 18 -16 30z"/>
+              <circle class="m-pin-dot" cy="-30" r="6"/>
+            </g>
+            <text class="m-label" x="426" y="394">Casa Zuazua 22</text>
+            <g transform="translate(672 34)">
+              <path class="m-north" d="M0 -14 L7 6 L0 2 L-7 6z"/>
+              <text class="m-north-t" y="24" text-anchor="middle">N</text>
+            </g>
+          </svg>
+        </figure>
+
+        <div>
+          <address>Zuazua 22, San Miguel Chapultepec, CDMX</address>
+          <p class="loc-text">San Miguel Chapultepec es una de las colonias más tranquilas de la Ciudad de México, reconocida por su patrimonio arquitectónico, sus calles arboladas y su cercanía con el Bosque de Chapultepec. En la colonia encuentras museos, galerías y una oferta innovadora de restaurantes y cafés.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer"
+             href="https://www.google.com/maps/search/?api=1&query=General+Zuazua+22,+San+Miguel+Chapultepec,+Ciudad+de+México">Abrir en Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="sec" id="galeria">
+    <div class="wrap">
+      <h2>Galería</h2>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="sec" id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Contacto</h2>
+          <p class="lead">Para agendar una visita, ponte en contacto por WhatsApp con Helke en el 55&nbsp;7195&nbsp;2013.</p>
+          <div class="contact-actions" id="contact-actions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos" hidden>
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar">&times;</button>
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Foto anterior">&#8249;</button>
+  <figure class="lb-stage">
+    <div id="lb-media"></div>
+    <figcaption class="lb-count" id="lb-count" aria-live="polite"></figcaption>
+  </figure>
+  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Foto siguiente">&#8250;</button>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN
+   Fotos: 'portada' es la foto principal que aparece primero; 'galería' el resto. Guarda las fotos en la carpeta images/ y enlázalas con { src: "images/archivo.jpg", alt: "descripción" }.
+   Si una lista está vacía, se muestran espacios reservados.
+   ============================================================ */
+const FOTOS = {
+  portada: [
+      {
+          "src": "images/fachada.jpg",
+          "alt": "Fachada de la casa, en la esquina de una calle muy arbolada"
+      }
+  ],
+  galeria: [
+      {
+          "src": "images/01-sala-ventana-vitral.jpg",
+          "alt": "Sala con ventana arqueada y vitral de colores"
+      },
+      {
+          "src": "images/02-vestibulo-puertas-arqueadas.jpg",
+          "alt": "Vestíbulo con puertas arqueadas de madera y piso de mármol"
+      },
+      {
+          "src": "images/03-sala-piso-madera.jpg",
+          "alt": "Sala con piso de madera y vista hacia el comedor"
+      },
+      {
+          "src": "images/04-sala-ventanas-vitral.jpg",
+          "alt": "Sala con dos ventanas arqueadas con vitral"
+      },
+      {
+          "src": "images/05-estudio-librero.jpg",
+          "alt": "Estudio con librero de piso a techo"
+      },
+      {
+          "src": "images/06-biblioteca-mosaico.jpg",
+          "alt": "Biblioteca con piso de mosaico y vista a la calle"
+      },
+      {
+          "src": "images/07-recamara-piso-madera.jpg",
+          "alt": "Recámara con piso de madera original"
+      },
+      {
+          "src": "images/08-recamara-puerta-decorativa.jpg",
+          "alt": "Recámara con puerta corrediza decorativa"
+      },
+      {
+          "src": "images/09-ventana-vista-vecindario.jpg",
+          "alt": "Ventana con vista al vecindario arbolado"
+      },
+      {
+          "src": "images/10-bano-lavabo-piedra.jpg",
+          "alt": "Baño con lavabo de piedra y espejo de madera"
+      },
+      {
+          "src": "images/11-regadera-vitral-flamingo.jpg",
+          "alt": "Regadera con vitral de flamingo"
+      },
+      {
+          "src": "images/12-walk-in-closet-cajoneras.jpg",
+          "alt": "Walk-in closet con cajoneras"
+      },
+      {
+          "src": "images/13-walk-in-closet-principal.jpg",
+          "alt": "Walk-in closet de la recámara principal, con tocador"
+      },
+      {
+          "src": "images/14-recamara-ventanas-arqueadas.jpg",
+          "alt": "Recámara con dos ventanas arqueadas"
+      },
+      {
+          "src": "images/15-recamara-closet-madera.jpg",
+          "alt": "Recámara con clóset empotrado de madera"
+      },
+      {
+          "src": "images/16-escalera-vitrales-verdes.jpg",
+          "alt": "Escalera con vitrales verdes"
+      },
+      {
+          "src": "images/17-puerta-herreria.jpg",
+          "alt": "Puerta de acceso con herrería forjada"
+      },
+      {
+          "src": "images/18-cocina-equipada.jpg",
+          "alt": "Cocina equipada con azulejos amarillos y azules"
+      },
+      {
+          "src": "images/19-cocina-ventanas.jpg",
+          "alt": "Cocina, vista hacia las ventanas"
+      },
+      {
+          "src": "images/20-patio-techado.jpg",
+          "alt": "Patio techado con piso de piedra"
+      },
+      {
+          "src": "images/21-bano-ventana-toallero.jpg",
+          "alt": "Baño con ventana y toallero"
+      },
+      {
+          "src": "images/22-regadera-marmol.jpg",
+          "alt": "Regadera de mármol travertino"
+      },
+      {
+          "src": "images/23-bano-compacto.jpg",
+          "alt": "Baño compacto con regadera"
+      },
+      {
+          "src": "images/24-bano-regadera-cristal.jpg",
+          "alt": "Baño con regadera de cristal"
+      },
+      {
+          "src": "images/25-roof-garden-vista.jpg",
+          "alt": "Vista arbolada desde el roof garden"
+      }
+  ]
+};
+
+// Datos de contacto (opcionales). Si se llenan, aparecen los botones.
+const CONTACTO = {
+  telefono: "",   // ej. "+525512345678"
+  whatsapp: "525571952013",
+  correo: ""      // ej. "correo@ejemplo.com"
+};
+
+/* ============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NS = 'http://www.w3.org/2000/svg';
+
+  /* ---------- Marcador de posición (ventana arqueada) ---------- */
+  function placeholder(texto) {
+    const box = document.createElement('div');
+    box.className = 'ph';
+    box.innerHTML =
+      '<svg viewBox="0 0 120 160" aria-hidden="true">' +
+      '<path d="M20 150V65A40 40 0 0 1 100 65V150Z"/>' +
+      '<path d="M60 25V150M20 100H100"/></svg>' +
+      '<span>' + texto + '</span>';
+    return box;
+  }
+
+  function imagen(item, lazy) {
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.alt || '';
+    if (lazy) img.loading = 'lazy';
+    img.decoding = 'async';
+    return img;
+  }
+
+  /* ---------- Portada ---------- */
+  const heroPhoto = document.getElementById('hero-photo');
+  const portada = FOTOS.portada[0];
+  heroPhoto.appendChild(portada && portada.src ? imagen(portada, false) : placeholder('Foto de la fachada'));
+
+  /* ---------- Galería ---------- */
+  const todas = FOTOS.galeria;
+  const items = todas.length
+    ? todas
+    : Array.from({ length: 6 }, function () { return { src: null, alt: '' }; });
+
+  const grid = document.getElementById('grid');
+  items.forEach(function (item, i) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tile';
+    b.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ' de ' + items.length);
+    b.appendChild(item.src ? imagen(item, true) : placeholder('Foto pendiente'));
+    b.addEventListener('click', function () { openLB(i, b); });
+    grid.appendChild(b);
+  });
+
+  /* ---------- Lightbox ---------- */
+  const lb = document.getElementById('lb');
+  const media = document.getElementById('lb-media');
+  const count = document.getElementById('lb-count');
+  const btnClose = document.getElementById('lb-close');
+  const btnPrev = document.getElementById('lb-prev');
+  const btnNext = document.getElementById('lb-next');
+  let current = 0, opener = null;
+
+  function show(i) {
+    current = (i + items.length) % items.length;
+    const item = items[current];
+    media.replaceChildren();
+    if (item.src) {
+      media.appendChild(imagen(item, false));
+    } else {
+      const ph = placeholder('Foto pendiente');
+      ph.classList.add('lb-ph');
+      media.appendChild(ph);
+    }
+    count.textContent = (current + 1) + ' / ' + items.length + (item.alt ? ' · ' + item.alt : '');
+  }
+  function openLB(i, from) {
+    opener = from || null;
+    show(i);
+    const multi = items.length > 1;
+    btnPrev.hidden = btnNext.hidden = !multi;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function closeLB() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    if (opener) opener.focus();
+  }
+  btnClose.addEventListener('click', closeLB);
+  btnPrev.addEventListener('click', function () { show(current - 1); });
+  btnNext.addEventListener('click', function () { show(current + 1); });
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target.classList.contains('lb-stage')) closeLB();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') { closeLB(); }
+    else if (e.key === 'ArrowLeft') { show(current - 1); }
+    else if (e.key === 'ArrowRight') { show(current + 1); }
+    else if (e.key === 'Tab') {
+      const f = [btnClose, btnPrev, btnNext].filter(function (b) { return !b.hidden; });
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // Deslizar en pantallas táctiles
+  let x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+
+  /* ---------- Contacto ---------- */
+  const acciones = document.getElementById('contact-actions');
+  function boton(txt, href, primary, externo) {
+    const a = document.createElement('a');
+    a.className = 'btn ' + (primary ? 'btn-primary' : 'btn-ghost');
+    a.textContent = txt;
+    a.href = href;
+    if (externo) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+    acciones.appendChild(a);
+  }
+  if (CONTACTO.whatsapp) boton('Escribir por WhatsApp', 'https://wa.me/' + CONTACTO.whatsapp.replace(/\D/g, '') + '?text=' + encodeURIComponent('Hola, me interesa la casa en renta de Zuazua 22.'), true, true);
+  if (CONTACTO.telefono) boton('Llamar', 'tel:' + CONTACTO.telefono.replace(/[^\d+]/g, ''), !CONTACTO.whatsapp, false);
+  if (CONTACTO.correo) boton('Enviar correo', 'mailto:' + CONTACTO.correo, false, false);
+  boton('Volver arriba', '#top', false, false);
+
+  /* ---------- Mapa ilustrativo ---------- */
+  function add(parent, tag, attrs) {
+    const el = document.createElementNS(NS, tag);
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    parent.appendChild(el);
+    return el;
+  }
+  const blocks = document.getElementById('m-blocks');
+
+  // Calles verticales: [90,130] [360,410] [610,650]; horizontales: [60,100] [230,280] [420,460]
+  const cols = [[-10, 90], [130, 360], [410, 610], [650, 710]];
+  const rows = [[-10, 60], [100, 230], [280, 450], [490, 530]];
+  cols.forEach(function (c) {
+    rows.forEach(function (r) {
+      add(blocks, 'rect', {
+        x: c[0] + 6, y: r[0] + 6, width: c[1] - c[0] - 12, height: r[1] - r[0] - 12,
+        rx: 4, class: 'm-block'
+      });
+    });
+  });
+  /* ---------- Scroll suave ---------- */
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    e.preventDefault();
+    const behavior = reduceMotion ? 'auto' : 'smooth';
+    if (!id || id === 'top') {
+      window.scrollTo({ top: 0, behavior: behavior });
+    } else {
+      const t = document.getElementById(id);
+      if (!t) return;
+      const nav = document.querySelector('.nav');
+      const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+      const y = t.getBoundingClientRect().top + window.pageYOffset - navBottom;
+      window.scrollTo({ top: Math.max(0, y), behavior: behavior });
+    }
+  });
+
+  /* ---------- Sección activa en el menú ---------- */
+  const links = Array.prototype.slice.call(document.querySelectorAll('.links a'));
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (l) {
+          if (l.getAttribute('href') === '#' + en.target.id) l.setAttribute('aria-current', 'true');
+          else l.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['casa', 'ubicacion', 'galeria', 'contacto'].forEach(function (id) {
+      const s = document.getElementById(id);
+      if (s) obs.observe(s);
+    });
+  }
+})();
+</script>
+</body>
+</html>
