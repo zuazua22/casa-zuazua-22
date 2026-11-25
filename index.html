@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Casa Gral. Zuazua 22 · En renta en San Miguel Chapultepec</title>
-<meta name="description" content="Casa en renta de dos niveles, en esquina y sobre una calle muy arbolada de San Miguel Chapultepec, Ciudad de México. $70,000 MXN al mes.">
+<meta name="description" content="Casa remodelada de dos pisos, en esquina y sobre una calle muy arbolada de San Miguel Chapultepec, Ciudad de México. $69,800 MXN al mes (USD 3,740).">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="Casa en renta · Zuazua 22, San Miguel Chapultepec">
-<meta property="og:description" content="Casa de dos niveles en esquina, en una de las calles más arboladas de la colonia. $70,000 MXN al mes.">
+<meta property="og:description" content="Casa remodelada de dos pisos en esquina, en una de las calles más arboladas de la colonia. $69,800 MXN al mes (USD 3,740).">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,6 +249,43 @@
   }
   .ph svg { width: 44px; height: auto; stroke: var(--accent); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 
+
+  /* Idioma */
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; }
+  .lang button {
+    border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: 600 .78rem/1 var(--sans); letter-spacing: .04em;
+    padding: 7px 10px; border-radius: 999px; min-width: 38px;
+  }
+  .lang button[aria-pressed="true"] { background: var(--btn-bg); color: var(--btn-ink); }
+  .lang button:not([aria-pressed="true"]):hover { color: var(--ink); }
+
+  .pill .usd { font: 400 1rem var(--sans); color: var(--muted); }
+  .pill { flex-wrap: wrap; justify-content: center; row-gap: 2px; }
+  .fx-note { margin: 10px auto 0; max-width: 46ch; font-size: .82rem; line-height: 1.45; color: var(--muted); }
+  .lead + .lead { margin-top: 16px; }
+  .figs.five { grid-template-columns: repeat(5, 1fr); }
+
+  .sub { font-size: 1.4rem; margin: 40px 0 16px; }
+  .sub:first-of-type { margin-top: 8px; }
+  .video { margin: 0 0 8px; max-width: 880px; }
+  .video-box {
+    position: relative; aspect-ratio: 16 / 9; width: 100%;
+    border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface);
+  }
+  .video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-box iframe { z-index: 1; position: absolute; }
+  .video-link {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 16px; text-align: center; padding: 20px;
+  }
+  .video-link svg { width: 64px; height: 64px; fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+  .video-alt { margin-top: 10px; font-size: .9rem; color: var(--muted); }
+  .video-alt a { color: var(--accent-ink); }
+  .tile.plan { cursor: zoom-in; background: #fff; grid-column: span 2; aspect-ratio: 2 / 1; }
+  .tile.plan img { object-fit: contain; object-position: 50% 50%; padding: 6px; }
+
   /* Contacto */
   .contact { max-width: 620px; }
   .contact .lead { font-size: 1.2rem; }
@@ -297,7 +334,14 @@
       overflow-x: auto; margin: 0 -8px;
     }
     .links a { padding: 8px 8px; }
-    .figs { grid-template-columns: repeat(2, 1fr); }
+    .figs, .figs.five { grid-template-columns: repeat(2, 1fr); }
+    .figs.five .fig:last-child { grid-column: 1 / -1; }
+    .brand { font-size: 1.02rem; }
+    .nav-in { gap: 4px 10px; }
+    .nav-right { gap: 8px; }
+    .nav-price { font-size: .9rem; }
+    .lang button { padding: 6px 8px; min-width: 32px; font-size: .72rem; }
+    .nav-price small { display: none; }
     .amen { grid-template-columns: 1fr; }
     .lb-prev { left: 8px; }
     .lb-next { right: 8px; }
@@ -315,13 +359,19 @@
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="#top">Casa Gral. Zuazua 22</a>
-    <nav class="links" aria-label="Secciones">
-      <a href="#casa">La casa</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="#galeria">Galería</a>
-      <a href="#contacto">Contacto</a>
+    <nav class="links" id="nav-links" data-i18n-aria="aria_sections" aria-label="Secciones">
+      <a href="#casa" data-i18n="nav_house">La casa</a>
+      <a href="#ubicacion" data-i18n="nav_loc">Ubicación</a>
+      <a href="#galeria" data-i18n="nav_gal">Galería</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </nav>
-    <div class="nav-price">$70,000 MXN<small>/ mes</small></div>
+    <div class="nav-right">
+      <div class="nav-price"><span id="nav-mxn">$69,800 MXN</span><small data-i18n="per_month_short">/ mes</small></div>
+      <div class="lang" role="group" data-i18n-aria="aria_lang" aria-label="Idioma">
+        <button type="button" data-lang="es" aria-pressed="true" lang="es" aria-label="Español">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -332,12 +382,12 @@
     <div class="wrap">
       <div class="frame" id="hero-photo"></div>
       <div class="plaque">
-        <h1>Casa en renta</h1>
+        <h1 data-i18n="h1">Casa en renta</h1>
         <p class="addr">Zuazua 22, San Miguel Chapultepec, CDMX</p>
-        <div class="pill">$70,000 MXN <small>al mes</small></div>
+        <div class="pill"><span id="pill-mxn">$69,800 MXN</span> <small data-i18n="per_month">al mes</small> <span class="usd" id="pill-usd">(USD 3,740)</span></div>
         <div class="cta">
-          <a class="btn btn-primary" href="#contacto">Contactar</a>
-          <a class="btn btn-ghost" href="#galeria">Ver fotos</a>
+          <a class="btn btn-primary" href="#contacto" data-i18n="cta_contact">Contactar</a>
+          <a class="btn btn-ghost" href="#galeria" data-i18n="cta_photos">Ver fotos</a>
         </div>
       </div>
     </div>
@@ -346,30 +396,28 @@
   <!-- La casa -->
   <section class="sec" id="casa">
     <div class="wrap">
-      <h2>La casa</h2>
-      <p class="lead">
-        Casa de dos niveles ubicada en esquina, en una de las calles más arboladas de la colonia. Conserva elementos originales de gran carácter — pisos de madera, ventanas arqueadas con herrería forjada y vitrales de colores — combinados con acabados renovados en baños y cocina. Alrededor de 150 m² distribuidos en espacios amplios y luminosos, con un patio central que conecta las áreas sociales.
-      </p>
+      <h2 data-i18n="h_house">La casa</h2>
+      <p class="lead" data-i18n="lead1"></p>
+      <p class="lead" data-i18n="lead2"></p>
 
       <div class="figs">
-        <div class="fig"><b>150</b><span>m² aproximados</span></div>
-        <div class="fig"><b>2</b><span>recámaras</span></div>
-        <div class="fig"><b>2</b><span>baños completos</span></div>
-        <div class="fig"><b>+1</b><span>cuarto de servicio con baño</span></div>
+        <div class="fig"><b>150</b><span data-i18n="fig_m2">m² aproximados</span></div>
+        <div class="fig"><b>2</b><span data-i18n="fig_bed">recámaras completas</span></div>
+        <div class="fig"><b>3</b><span data-i18n="fig_bath">baños completos</span></div>
+        <div class="fig"><b>+1</b><span data-i18n="fig_service">cuarto de servicio, reutilizable</span></div>
       </div>
 
-      <h3>Espacios y detalles</h3>
+      <h3 data-i18n="h_details">Espacios y detalles</h3>
       <ul class="amen">
-        <li>2 recámaras, la principal con walk-in closet</li>
-        <li>2 baños completos</li>
-        <li>Oficina o estudio</li>
-        <li>Family room</li>
-        <li>Cocina equipada</li>
-        <li>Patio techado</li>
-        <li>Roof garden</li>
-        <li>Pisos de madera originales</li>
-        <li>Ventanas con herrería y vitrales</li>
-        <li>Vista arbolada</li>
+        <li data-i18n="am1"></li>
+        <li data-i18n="am2"></li>
+        <li data-i18n="am3"></li>
+        <li data-i18n="am4"></li>
+        <li data-i18n="am5"></li>
+        <li data-i18n="am6"></li>
+        <li data-i18n="am7"></li>
+        <li data-i18n="am8"></li>
+        <li data-i18n="am9"></li>
       </ul>
     </div>
   </section>
@@ -377,20 +425,20 @@
   <!-- Ubicación -->
   <section class="sec" id="ubicacion">
     <div class="wrap">
-      <h2>Ubicación</h2>
+      <h2 data-i18n="h_loc">Ubicación</h2>
       <div class="loc">
         <figure class="map">
-          <svg viewBox="0 0 700 520" role="img" aria-label="Mapa ilustrativo: la casa está en la esquina de la calle General Zuazua con la calle Tiburcio Montiel.">
+          <svg viewBox="0 0 700 520" role="img" data-i18n-aria="aria_map" aria-label="Mapa ilustrativo: la casa está en la esquina de la calle General Zuazua con la calle Tiburcio Montiel.">
             <rect width="700" height="520" class="m-street"/>
             <g id="m-blocks"></g>
-            <text class="m-name" x="245" y="261" text-anchor="middle">Calle Gral. Zuazua</text>
-            <text class="m-name" transform="translate(391 365) rotate(-90)" text-anchor="middle">Tiburcio Montiel</text>
+            <text class="m-name" x="245" y="261" text-anchor="middle" data-i18n="map_zuazua">Calle Gral. Zuazua</text>
+            <text class="m-name" transform="translate(391 365) rotate(-90)" text-anchor="middle" data-i18n="map_montiel">Tiburcio Montiel</text>
             <rect class="m-lot" x="426" y="296" width="100" height="56" rx="3"/>
             <g transform="translate(476 330)">
               <path class="m-pin" d="M0 0 C-9 -12 -16 -20 -16 -30 a16 16 0 1 1 32 0 c0 10 -7 18 -16 30z"/>
               <circle class="m-pin-dot" cy="-30" r="6"/>
             </g>
-            <text class="m-label" x="426" y="394">Casa Zuazua 22</text>
+            <text class="m-label" x="426" y="394" data-i18n="map_house">Casa Zuazua 22</text>
             <g transform="translate(672 34)">
               <path class="m-north" d="M0 -14 L7 6 L0 2 L-7 6z"/>
               <text class="m-north-t" y="24" text-anchor="middle">N</text>
@@ -400,9 +448,9 @@
 
         <div>
           <address>Zuazua 22, San Miguel Chapultepec, CDMX</address>
-          <p class="loc-text">San Miguel Chapultepec es una de las colonias más tranquilas de la Ciudad de México, reconocida por su patrimonio arquitectónico, sus calles arboladas y su cercanía con el Bosque de Chapultepec. En la colonia encuentras museos, galerías y una oferta innovadora de restaurantes y cafés.</p>
+          <p class="loc-text" data-i18n="loc_text"></p>
           <a class="btn btn-primary" target="_blank" rel="noopener noreferrer"
-             href="https://www.google.com/maps/search/?api=1&query=General+Zuazua+22,+San+Miguel+Chapultepec,+Ciudad+de+México">Abrir en Google Maps</a>
+             href="https://www.google.com/maps/search/?api=1&query=General+Zuazua+22,+San+Miguel+Chapultepec,+Ciudad+de+México" data-i18n="btn_maps">Abrir en Google Maps</a>
         </div>
       </div>
     </div>
@@ -411,7 +459,15 @@
   <!-- Galería -->
   <section class="sec" id="galeria">
     <div class="wrap">
-      <h2>Galería</h2>
+      <h2 data-i18n="h_gal">Galería</h2>
+
+      <h3 class="sub" id="video-title" data-i18n="h_video">Recorrido en video</h3>
+      <div class="video">
+        <div class="video-box"><iframe id="video-frame" src="https://www.youtube-nocookie.com/embed/V-9Gc14awrE?rel=0" title="Recorrido en video de la casa" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <p class="video-alt" id="video-alt"></p>
+      </div>
+
+      <h3 class="sub" data-i18n="h_photos">Fotos</h3>
       <div class="grid" id="grid"></div>
     </div>
   </section>
@@ -421,8 +477,8 @@
     <div class="wrap">
       <div class="contact">
         <div>
-          <h2>Contacto</h2>
-          <p class="lead">Para agendar una visita, ponte en contacto por WhatsApp con Helke en el 55&nbsp;7195&nbsp;2013.</p>
+          <h2 data-i18n="h_contact">Contacto</h2>
+          <p class="lead" data-i18n="contact_text"></p>
           <div class="contact-actions" id="contact-actions"></div>
         </div>
       </div>
@@ -432,144 +488,266 @@
 </main>
 
 <!-- Lightbox -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos" hidden>
-  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar">&times;</button>
-  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Foto anterior">&#8249;</button>
+<div class="lb" id="lb" role="dialog" aria-modal="true" data-i18n-aria="aria_lb" aria-label="Galería de fotos" hidden>
+  <button class="lb-btn lb-close" id="lb-close" type="button" data-i18n-aria="aria_close" aria-label="Cerrar">&times;</button>
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" data-i18n-aria="aria_prev" aria-label="Foto anterior">&#8249;</button>
   <figure class="lb-stage">
     <div id="lb-media"></div>
     <figcaption class="lb-count" id="lb-count" aria-live="polite"></figcaption>
   </figure>
-  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Foto siguiente">&#8250;</button>
+  <button class="lb-btn lb-next" id="lb-next" type="button" data-i18n-aria="aria_next" aria-label="Foto siguiente">&#8250;</button>
 </div>
 
 <script>
 /* ============================================================
    CONFIGURACIÓN
-   Fotos: 'portada' es la foto principal que aparece primero; 'galería' el resto. Guarda las fotos en la carpeta images/ y enlázalas con { src: "images/archivo.jpg", alt: "descripción" }.
-   Si una lista está vacía, se muestran espacios reservados.
+   Fotos: 'portada' es la foto principal; 'galeria' el resto; 'plano' (opcional) es el plano de la casa.
+   Guarda las imágenes en images/ y enlázalas con { src, alt, alt_en }.
    ============================================================ */
 const FOTOS = {
-  portada: [
-      {
-          "src": "images/fachada.jpg",
-          "alt": "Fachada de la casa, en la esquina de una calle muy arbolada"
-      }
+  "portada": [
+    {
+      "src": "images/fachada.jpg",
+      "alt": "Fachada de la casa, en la esquina de una calle muy arbolada",
+      "alt_en": "Front of the house, on the corner of a tree-lined street"
+    }
   ],
-  galeria: [
-      {
-          "src": "images/01-sala-ventana-vitral.jpg",
-          "alt": "Sala con ventana arqueada y vitral de colores"
-      },
-      {
-          "src": "images/02-vestibulo-puertas-arqueadas.jpg",
-          "alt": "Vestíbulo con puertas arqueadas de madera y piso de mármol"
-      },
-      {
-          "src": "images/03-sala-piso-madera.jpg",
-          "alt": "Sala con piso de madera y vista hacia el comedor"
-      },
-      {
-          "src": "images/04-sala-ventanas-vitral.jpg",
-          "alt": "Sala con dos ventanas arqueadas con vitral"
-      },
-      {
-          "src": "images/05-estudio-librero.jpg",
-          "alt": "Estudio con librero de piso a techo"
-      },
-      {
-          "src": "images/06-biblioteca-mosaico.jpg",
-          "alt": "Biblioteca con piso de mosaico y vista a la calle"
-      },
-      {
-          "src": "images/07-recamara-piso-madera.jpg",
-          "alt": "Recámara con piso de madera original"
-      },
-      {
-          "src": "images/08-recamara-puerta-decorativa.jpg",
-          "alt": "Recámara con puerta corrediza decorativa"
-      },
-      {
-          "src": "images/09-ventana-vista-vecindario.jpg",
-          "alt": "Ventana con vista al vecindario arbolado"
-      },
-      {
-          "src": "images/10-bano-lavabo-piedra.jpg",
-          "alt": "Baño con lavabo de piedra y espejo de madera"
-      },
-      {
-          "src": "images/11-regadera-vitral-flamingo.jpg",
-          "alt": "Regadera con vitral de flamingo"
-      },
-      {
-          "src": "images/12-walk-in-closet-cajoneras.jpg",
-          "alt": "Walk-in closet con cajoneras"
-      },
-      {
-          "src": "images/13-walk-in-closet-principal.jpg",
-          "alt": "Walk-in closet de la recámara principal, con tocador"
-      },
-      {
-          "src": "images/14-recamara-ventanas-arqueadas.jpg",
-          "alt": "Recámara con dos ventanas arqueadas"
-      },
-      {
-          "src": "images/15-recamara-closet-madera.jpg",
-          "alt": "Recámara con clóset empotrado de madera"
-      },
-      {
-          "src": "images/16-escalera-vitrales-verdes.jpg",
-          "alt": "Escalera con vitrales verdes"
-      },
-      {
-          "src": "images/17-puerta-herreria.jpg",
-          "alt": "Puerta de acceso con herrería forjada"
-      },
-      {
-          "src": "images/18-cocina-equipada.jpg",
-          "alt": "Cocina equipada con azulejos amarillos y azules"
-      },
-      {
-          "src": "images/19-cocina-ventanas.jpg",
-          "alt": "Cocina, vista hacia las ventanas"
-      },
-      {
-          "src": "images/20-patio-techado.jpg",
-          "alt": "Patio techado con piso de piedra"
-      },
-      {
-          "src": "images/21-bano-ventana-toallero.jpg",
-          "alt": "Baño con ventana y toallero"
-      },
-      {
-          "src": "images/22-regadera-marmol.jpg",
-          "alt": "Regadera de mármol travertino"
-      },
-      {
-          "src": "images/23-bano-compacto.jpg",
-          "alt": "Baño compacto con regadera"
-      },
-      {
-          "src": "images/24-bano-regadera-cristal.jpg",
-          "alt": "Baño con regadera de cristal"
-      },
-      {
-          "src": "images/25-roof-garden-vista.jpg",
-          "alt": "Vista arbolada desde el roof garden"
-      }
-  ]
+  "galeria": [
+    {
+      "src": "images/01-sala-ventana-vitral.jpg",
+      "alt": "Sala con ventana arqueada y vitral de colores",
+      "alt_en": "Living room with an arched window and colored stained glass"
+    },
+    {
+      "src": "images/02-vestibulo-puertas-arqueadas.jpg",
+      "alt": "Vestíbulo con puertas arqueadas de madera y piso de mármol",
+      "alt_en": "Entry hall with arched wooden doors and marble floor"
+    },
+    {
+      "src": "images/03-sala-piso-madera.jpg",
+      "alt": "Sala con piso de madera y vista hacia el comedor",
+      "alt_en": "Living room with wood floor and a view to the dining area"
+    },
+    {
+      "src": "images/04-sala-ventanas-vitral.jpg",
+      "alt": "Sala con dos ventanas arqueadas con vitral",
+      "alt_en": "Living room with two arched stained-glass windows"
+    },
+    {
+      "src": "images/05-estudio-librero.jpg",
+      "alt": "Estudio con librero de piso a techo",
+      "alt_en": "Study with floor-to-ceiling bookshelf"
+    },
+    {
+      "src": "images/06-biblioteca-mosaico.jpg",
+      "alt": "Biblioteca con piso de mosaico y vista a la calle",
+      "alt_en": "Library with mosaic tile floor and street view"
+    },
+    {
+      "src": "images/07-recamara-piso-madera.jpg",
+      "alt": "Recámara con piso de madera original",
+      "alt_en": "Bedroom with original wood floor"
+    },
+    {
+      "src": "images/08-recamara-puerta-decorativa.jpg",
+      "alt": "Recámara con puerta corrediza decorativa",
+      "alt_en": "Bedroom with decorative sliding door"
+    },
+    {
+      "src": "images/09-ventana-vista-vecindario.jpg",
+      "alt": "Ventana con vista al vecindario arbolado",
+      "alt_en": "Window overlooking the tree-lined neighborhood"
+    },
+    {
+      "src": "images/10-bano-lavabo-piedra.jpg",
+      "alt": "Baño con lavabo de piedra y espejo de madera",
+      "alt_en": "Bathroom with stone sink and wooden mirror"
+    },
+    {
+      "src": "images/11-regadera-vitral-flamingo.jpg",
+      "alt": "Regadera con vitral de flamingo",
+      "alt_en": "Shower with flamingo stained glass"
+    },
+    {
+      "src": "images/12-walk-in-closet-cajoneras.jpg",
+      "alt": "Walk-in closet con cajoneras",
+      "alt_en": "Walk-in closet with dressers"
+    },
+    {
+      "src": "images/13-walk-in-closet-principal.jpg",
+      "alt": "Walk-in closet de la recámara principal, con tocador",
+      "alt_en": "Primary bedroom walk-in closet, with vanity"
+    },
+    {
+      "src": "images/14-recamara-ventanas-arqueadas.jpg",
+      "alt": "Recámara con dos ventanas arqueadas",
+      "alt_en": "Bedroom with two arched windows"
+    },
+    {
+      "src": "images/15-recamara-closet-madera.jpg",
+      "alt": "Recámara con clóset empotrado de madera",
+      "alt_en": "Bedroom with built-in wooden closet"
+    },
+    {
+      "src": "images/16-escalera-vitrales-verdes.jpg",
+      "alt": "Escalera con vitrales verdes",
+      "alt_en": "Staircase with green stained glass"
+    },
+    {
+      "src": "images/17-puerta-herreria.jpg",
+      "alt": "Puerta de acceso con herrería forjada",
+      "alt_en": "Entrance door with wrought ironwork"
+    },
+    {
+      "src": "images/18-cocina-equipada.jpg",
+      "alt": "Cocina equipada con azulejos amarillos y azules",
+      "alt_en": "Equipped kitchen with yellow and blue tiles"
+    },
+    {
+      "src": "images/19-cocina-ventanas.jpg",
+      "alt": "Cocina, vista hacia las ventanas",
+      "alt_en": "Kitchen, view toward the windows"
+    },
+    {
+      "src": "images/20-patio-techado.jpg",
+      "alt": "Patio techado con piso de piedra",
+      "alt_en": "Covered patio with stone floor"
+    },
+    {
+      "src": "images/21-bano-ventana-toallero.jpg",
+      "alt": "Baño con ventana y toallero",
+      "alt_en": "Bathroom with window and towel rack"
+    },
+    {
+      "src": "images/22-regadera-marmol.jpg",
+      "alt": "Regadera de mármol travertino",
+      "alt_en": "Travertine marble shower"
+    },
+    {
+      "src": "images/23-bano-compacto.jpg",
+      "alt": "Baño compacto con regadera",
+      "alt_en": "Compact bathroom with shower"
+    },
+    {
+      "src": "images/24-bano-regadera-cristal.jpg",
+      "alt": "Baño con regadera de cristal",
+      "alt_en": "Bathroom with glass shower"
+    },
+    {
+      "src": "images/25-roof-garden-vista.jpg",
+      "alt": "Vista arbolada desde el roof garden",
+      "alt_en": "Tree-lined view from the roof garden"
+    }
+  ],
+  "plano": {
+    "src": "images/plano.jpg",
+    "alt": "Plano de la casa, planta baja y planta alta",
+    "alt_en": "Floor plan, first and second floor"
+  }
 };
 
-// Datos de contacto (opcionales). Si se llenan, aparecen los botones.
 const CONTACTO = {
-  telefono: "",   // ej. "+525512345678"
+  telefono: "",
   whatsapp: "525571952013",
-  correo: ""      // ej. "correo@ejemplo.com"
+  correo: ""
+};
+
+// Precio mensual en pesos y tipo de cambio de referencia para el equivalente en dólares.
+// Para actualizarlo, cambia estos tres valores (la fecha va en formato AAAA-MM-DD).
+const PRECIO = { mxn: 69800, tipoCambio: 18.66, fecha: "2026-11-19" };
+
+const VIDEO_URL = "https://youtu.be/V-9Gc14awrE";
+
+/* ---------- Textos en español e inglés ---------- */
+const I18N = {
+  es: {
+    lang: 'es', locale: 'es-MX',
+    title: 'Casa Gral. Zuazua 22 · En renta en San Miguel Chapultepec',
+    meta: 'Casa remodelada de dos pisos, en esquina y sobre una calle muy arbolada de San Miguel Chapultepec, Ciudad de México. {mxn} MXN al mes ({usd}).',
+    aria_sections: 'Secciones', aria_lang: 'Idioma', aria_map: 'Mapa ilustrativo: la casa está en la esquina de la calle General Zuazua con la calle Tiburcio Montiel.',
+    aria_lb: 'Galería de fotos', aria_close: 'Cerrar', aria_prev: 'Foto anterior', aria_next: 'Foto siguiente',
+    nav_house: 'La casa', nav_loc: 'Ubicación', nav_gal: 'Galería', nav_contact: 'Contacto',
+    per_month_short: '/ mes', per_month: 'al mes',
+    h1: 'Casa en renta', cta_contact: 'Contactar', cta_photos: 'Ver fotos',
+    usd_approx: '({usd})',
+    fx_note: 'Equivalente en dólares calculado con el tipo de cambio de referencia del {fecha}: 1 USD = {tc} MXN.',
+    h_house: 'La casa',
+    lead1: 'Casa reacondicionada de dos pisos con acceso para crear un roof garden. Ubicada en esquina, en una de las calles más arboladas de San Miguel Chapultepec, conserva elementos originales de gran carácter — pisos de madera, ventanas arqueadas con herrería forjada y vitrales de colores — combinados con acabados renovados. Alrededor de 150 m² con luz natural, techos altos y vistas arboladas.',
+    lead2: 'Restaurantes y galerías reconocidos como Kurimanzutto, Comal Oculto, Galería de Arte Mexicano y Atlantis quedan a unas cuadras.',
+    fig_m2: 'm² aproximados', fig_bed: 'recámaras', fig_bath: 'baños completos', fig_service: 'cuarto de servicio',
+    h_details: 'Espacios y detalles',
+    am1: '2 recámaras, la principal con walk-in closet',
+    am2: '3 baños completos',
+    am3: 'Oficina o estudio',
+    am4: 'Family room',
+    am5: 'Cocina abierta',
+    am6: 'Patio techado',
+    am7: 'Cochera para un coche',
+    am8: 'Cuarto de servicio, reutilizable para otros propósitos',
+    am9: 'Acceso para crear un roof garden',
+    h_loc: 'Ubicación',
+    map_zuazua: 'Calle Gral. Zuazua', map_montiel: 'Tiburcio Montiel', map_house: 'Casa Zuazua 22',
+    loc_text: 'San Miguel Chapultepec es una de las colonias más tranquilas de la Ciudad de México, reconocida por su patrimonio arquitectónico, sus calles arboladas y su cercanía con el Bosque de Chapultepec. En la colonia encuentras museos, galerías y una oferta innovadora de restaurantes y cafés.',
+    btn_maps: 'Abrir en Google Maps',
+    h_gal: 'Galería', h_video: 'Recorrido en video', h_photos: 'Fotos', h_plan: 'Plano',
+    video_title: 'Recorrido en video de la casa', video_watch: 'Ver en YouTube', video_fallback: '¿No se reproduce? <a href="{url}" target="_blank" rel="noopener noreferrer">Míralo en YouTube</a>.',
+    view_photo: 'Ver foto {n} de {total}', view_plan: 'Ver plano de la casa',
+    h_contact: 'Contacto',
+    contact_text: 'Para agendar una visita, ponte en contacto por WhatsApp con Helke en el 55&nbsp;7195&nbsp;2013.',
+    btn_wa: 'Escribir por WhatsApp', btn_call: 'Llamar', btn_mail: 'Enviar correo', btn_top: 'Volver arriba',
+    wa_text: 'Hola, me interesa la casa en renta de Zuazua 22.'
+  },
+  en: {
+    lang: 'en', locale: 'en-US',
+    title: 'Casa Gral. Zuazua 22 · For rent in San Miguel Chapultepec',
+    meta: 'Recently remodeled two-story house on a corner of a tree-lined street in San Miguel Chapultepec, Mexico City. {mxn} MXN per month ({usd}).',
+    aria_sections: 'Sections', aria_lang: 'Language', aria_map: 'Illustrative map: the house is on the corner of General Zuazua street and Tiburcio Montiel street.',
+    aria_lb: 'Photo gallery', aria_close: 'Close', aria_prev: 'Previous photo', aria_next: 'Next photo',
+    nav_house: 'The house', nav_loc: 'Location', nav_gal: 'Gallery', nav_contact: 'Contact',
+    per_month_short: '/ month', per_month: 'per month',
+    h1: 'House for rent', cta_contact: 'Contact', cta_photos: 'View photos',
+    usd_approx: '({usd})',
+    fx_note: 'US dollar equivalent calculated at the reference exchange rate of {fecha}: 1 USD = {tc} MXN.',
+    h_house: 'The house',
+    lead1: 'A refurbished two-story house with access to create a roof garden. On a corner of one of the most tree-lined streets in San Miguel Chapultepec, it keeps original elements of great character — wood floors, arched windows with wrought ironwork and colored stained glass — combined with renewed finishes. About 150 m² (1,615 sq ft) with natural light, high ceilings and tree-lined views.',
+    lead2: 'Well-known restaurants and galleries such as Kurimanzutto, Comal Oculto, Galería de Arte Mexicano and Atlantis are a few blocks away.',
+    fig_m2: 'approx. m²', fig_bed: 'bedrooms', fig_bath: 'full bathrooms', fig_service: 'service room',
+    h_details: 'Spaces and details',
+    am1: '2 bedrooms, the primary with a walk-in closet',
+    am2: '3 full bathrooms',
+    am3: 'Office or study',
+    am4: 'Family room',
+    am5: 'Open kitchen',
+    am6: 'Covered patio',
+    am7: 'Parking for one car',
+    am8: 'Service room, can be repurposed for other uses',
+    am9: 'Access to create a roof garden',
+    h_loc: 'Location',
+    map_zuazua: 'Gral. Zuazua St.', map_montiel: 'Tiburcio Montiel', map_house: 'Zuazua 22 House',
+    loc_text: 'San Miguel Chapultepec is one of the quietest neighborhoods in Mexico City, known for its architectural heritage, tree-lined streets and its closeness to Chapultepec Park. In the neighborhood you will find museums, galleries and an innovative offering of restaurants and cafés.',
+    btn_maps: 'Open in Google Maps',
+    h_gal: 'Gallery', h_video: 'Video walkthrough', h_photos: 'Photos', h_plan: 'Floor plan',
+    video_title: 'Video walkthrough of the house', video_watch: 'Watch on YouTube', video_fallback: 'Not playing? <a href="{url}" target="_blank" rel="noopener noreferrer">Watch it on YouTube</a>.',
+    view_photo: 'View photo {n} of {total}', view_plan: 'View the floor plan',
+    h_contact: 'Contact',
+    contact_text: 'To schedule a visit, contact Helke on WhatsApp at +52&nbsp;55&nbsp;7195&nbsp;2013.',
+    btn_wa: 'Message on WhatsApp', btn_call: 'Call', btn_mail: 'Send email', btn_top: 'Back to top',
+    wa_text: "Hello, I'm interested in the house for rent at Zuazua 22."
+  }
 };
 
 /* ============================================================ */
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
+  let lang = 'es';
+  try { const s = localStorage.getItem('zuazua-lang'); if (s === 'en' || s === 'es') lang = s; } catch (e) {}
+  const T = function (k, vars) {
+    let t = (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : I18N.es[k];
+    if (vars) for (const v in vars) t = t.split('{' + v + '}').join(vars[v]);
+    return t;
+  };
+  const altOf = function (it) { return (lang === 'en' && it.alt_en) ? it.alt_en : (it.alt || ''); };
 
   /* ---------- Marcador de posición (ventana arqueada) ---------- */
   function placeholder(texto) {
@@ -582,11 +760,10 @@ const CONTACTO = {
       '<span>' + texto + '</span>';
     return box;
   }
-
   function imagen(item, lazy) {
     const img = document.createElement('img');
     img.src = item.src;
-    img.alt = item.alt || '';
+    img.alt = altOf(item);
     if (lazy) img.loading = 'lazy';
     img.decoding = 'async';
     return img;
@@ -595,24 +772,28 @@ const CONTACTO = {
   /* ---------- Portada ---------- */
   const heroPhoto = document.getElementById('hero-photo');
   const portada = FOTOS.portada[0];
-  heroPhoto.appendChild(portada && portada.src ? imagen(portada, false) : placeholder('Foto de la fachada'));
+  let heroImg = null;
+  if (portada && portada.src) { heroImg = imagen(portada, false); heroPhoto.appendChild(heroImg); }
+  else heroPhoto.appendChild(placeholder('Foto de la fachada'));
 
-  /* ---------- Galería ---------- */
-  const todas = FOTOS.galeria;
-  const items = todas.length
-    ? todas
-    : Array.from({ length: 6 }, function () { return { src: null, alt: '' }; });
-
+  /* ---------- Galería (fotos + plano) ---------- */
+  const items = [];
+  if (FOTOS.plano && FOTOS.plano.src) items.push(Object.assign({ plano: true }, FOTOS.plano));
+  const off = items.length;
+  FOTOS.galeria.forEach(function (f) { items.push(f); });
   const grid = document.getElementById('grid');
+  const tiles = [];
   items.forEach(function (item, i) {
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'tile';
-    b.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ' de ' + items.length);
-    b.appendChild(item.src ? imagen(item, true) : placeholder('Foto pendiente'));
+    b.className = 'tile' + (item.plano ? ' plan' : '');
+    const img = imagen(item, true);
+    b.appendChild(img);
     b.addEventListener('click', function () { openLB(i, b); });
     grid.appendChild(b);
+    tiles.push({ btn: b, img: img, item: item, i: i });
   });
+  if (!items.length) grid.hidden = true;
 
   /* ---------- Lightbox ---------- */
   const lb = document.getElementById('lb');
@@ -627,20 +808,13 @@ const CONTACTO = {
     current = (i + items.length) % items.length;
     const item = items[current];
     media.replaceChildren();
-    if (item.src) {
-      media.appendChild(imagen(item, false));
-    } else {
-      const ph = placeholder('Foto pendiente');
-      ph.classList.add('lb-ph');
-      media.appendChild(ph);
-    }
-    count.textContent = (current + 1) + ' / ' + items.length + (item.alt ? ' · ' + item.alt : '');
+    media.appendChild(imagen(item, false));
+    count.textContent = (current + 1) + ' / ' + items.length + (altOf(item) ? ' · ' + altOf(item) : '');
   }
   function openLB(i, from) {
     opener = from || null;
     show(i);
-    const multi = items.length > 1;
-    btnPrev.hidden = btnNext.hidden = !multi;
+    btnPrev.hidden = btnNext.hidden = items.length < 2;
     lb.hidden = false;
     document.body.style.overflow = 'hidden';
     btnClose.focus();
@@ -656,7 +830,6 @@ const CONTACTO = {
   lb.addEventListener('click', function (e) {
     if (e.target === lb || e.target.classList.contains('lb-stage')) closeLB();
   });
-
   document.addEventListener('keydown', function (e) {
     if (lb.hidden) return;
     if (e.key === 'Escape') { closeLB(); }
@@ -669,8 +842,6 @@ const CONTACTO = {
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
-
-  // Deslizar en pantallas táctiles
   let x0 = null;
   lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', function (e) {
@@ -682,18 +853,72 @@ const CONTACTO = {
 
   /* ---------- Contacto ---------- */
   const acciones = document.getElementById('contact-actions');
-  function boton(txt, href, primary, externo) {
-    const a = document.createElement('a');
-    a.className = 'btn ' + (primary ? 'btn-primary' : 'btn-ghost');
-    a.textContent = txt;
-    a.href = href;
-    if (externo) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
-    acciones.appendChild(a);
+  function renderContact() {
+    acciones.replaceChildren();
+    function boton(txt, href, primary, externo) {
+      const a = document.createElement('a');
+      a.className = 'btn ' + (primary ? 'btn-primary' : 'btn-ghost');
+      a.textContent = txt; a.href = href;
+      if (externo) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      acciones.appendChild(a);
+    }
+    if (CONTACTO.whatsapp) boton(T('btn_wa'), 'https://wa.me/' + CONTACTO.whatsapp.replace(/\D/g, '') + '?text=' + encodeURIComponent(T('wa_text')), true, true);
+    if (CONTACTO.telefono) boton(T('btn_call'), 'tel:' + CONTACTO.telefono.replace(/[^\d+]/g, ''), !CONTACTO.whatsapp, false);
+    if (CONTACTO.correo) boton(T('btn_mail'), 'mailto:' + CONTACTO.correo, false, false);
+    boton(T('btn_top'), '#top', false, false);
   }
-  if (CONTACTO.whatsapp) boton('Escribir por WhatsApp', 'https://wa.me/' + CONTACTO.whatsapp.replace(/\D/g, '') + '?text=' + encodeURIComponent('Hola, me interesa la casa en renta de Zuazua 22.'), true, true);
-  if (CONTACTO.telefono) boton('Llamar', 'tel:' + CONTACTO.telefono.replace(/[^\d+]/g, ''), !CONTACTO.whatsapp, false);
-  if (CONTACTO.correo) boton('Enviar correo', 'mailto:' + CONTACTO.correo, false, false);
-  boton('Volver arriba', '#top', false, false);
+
+  /* ---------- Precio ---------- */
+  function precio() {
+    const loc = I18N[lang].locale;
+    const usd = Math.round(PRECIO.mxn / PRECIO.tipoCambio / 10) * 10;
+    const d = new Date(PRECIO.fecha + 'T12:00:00');
+    return {
+      mxn: '$' + PRECIO.mxn.toLocaleString('en-US'),
+      usd: 'USD ' + usd.toLocaleString('en-US'),
+      tc: PRECIO.tipoCambio.toFixed(2),
+      fecha: d.toLocaleDateString(loc, { day: 'numeric', month: 'long', year: 'numeric' })
+    };
+  }
+
+  /* ---------- Idioma ---------- */
+  function setMeta(sel, val) { const el = document.querySelector(sel); if (el) el.setAttribute('content', val); }
+  function applyLang() {
+    document.documentElement.lang = I18N[lang].lang;
+    const p = precio();
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { el.innerHTML = T(el.getAttribute('data-i18n')); });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', T(el.getAttribute('data-i18n-aria'))); });
+    document.getElementById('nav-mxn').textContent = p.mxn + ' MXN';
+    document.getElementById('pill-mxn').textContent = p.mxn + ' MXN';
+    document.getElementById('pill-usd').textContent = T('usd_approx', { usd: p.usd });
+    document.title = T('title');
+    const meta = T('meta', { mxn: p.mxn, usd: p.usd });
+    setMeta('meta[name="description"]', meta);
+    setMeta('meta[property="og:description"]', meta);
+    setMeta('meta[property="og:title"]', lang === 'en' ? 'House for rent · Zuazua 22, San Miguel Chapultepec' : 'Casa en renta · Zuazua 22, San Miguel Chapultepec');
+    setMeta('meta[property="og:locale"]', lang === 'en' ? 'en_US' : 'es_MX');
+    if (heroImg) heroImg.alt = altOf(portada);
+    tiles.forEach(function (t) {
+      t.img.alt = altOf(t.item);
+      t.btn.setAttribute('aria-label', t.item.plano ? T('view_plan') : T('view_photo', { n: t.i + 1 - off, total: FOTOS.galeria.length }));
+    });
+    const vt = document.getElementById('video-frame');
+    if (vt) vt.title = T('video_title');
+    const vl = document.getElementById('video-watch');
+    if (vl) vl.textContent = T('video_watch');
+    const vf = document.getElementById('video-alt');
+    if (vf) vf.innerHTML = T('video_fallback', { url: VIDEO_URL });
+    if (!lb.hidden) show(current);
+    document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false'); });
+    renderContact();
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      lang = b.getAttribute('data-lang');
+      try { localStorage.setItem('zuazua-lang', lang); } catch (e) {}
+      applyLang();
+    });
+  });
 
   /* ---------- Mapa ilustrativo ---------- */
   function add(parent, tag, attrs) {
@@ -703,18 +928,14 @@ const CONTACTO = {
     return el;
   }
   const blocks = document.getElementById('m-blocks');
-
-  // Calles verticales: [90,130] [360,410] [610,650]; horizontales: [60,100] [230,280] [420,460]
   const cols = [[-10, 90], [130, 360], [410, 610], [650, 710]];
   const rows = [[-10, 60], [100, 230], [280, 450], [490, 530]];
   cols.forEach(function (c) {
     rows.forEach(function (r) {
-      add(blocks, 'rect', {
-        x: c[0] + 6, y: r[0] + 6, width: c[1] - c[0] - 12, height: r[1] - r[0] - 12,
-        rx: 4, class: 'm-block'
-      });
+      add(blocks, 'rect', { x: c[0] + 6, y: r[0] + 6, width: c[1] - c[0] - 12, height: r[1] - r[0] - 12, rx: 4, class: 'm-block' });
     });
   });
+
   /* ---------- Scroll suave ---------- */
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
@@ -751,7 +972,10 @@ const CONTACTO = {
       if (s) obs.observe(s);
     });
   }
+
+  applyLang();
 })();
+
 </script>
 </body>
 </html>

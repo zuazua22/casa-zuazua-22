@@ -51,3 +51,11 @@ Link previews need an absolute image URL, which is only known once the site is l
 ## Good to know
 - GitHub Pages sites are public, and the page shows the contact phone number. A free GitHub account needs a public repository for Pages.
 - The only external resource is Google Fonts (Fraunces and Inter). If it can't load, the page falls back to Georgia and system sans-serif.
+
+
+## Updating the page
+
+- **Price / exchange rate:** edit `PRECIO` near the top of the `<script>` in `index.html` (`mxn`, `tipoCambio`, `fecha`). The USD equivalent is calculated automatically.
+- **Texts (Spanish and English):** edit the `I18N` object in the same script.
+- **Floor plan:** it is `images/plano.jpg`; replace that file to update it.
+- **Video:** the walkthrough is embedded from YouTube (`V-9Gc14awrE`) in the Gallery section.
